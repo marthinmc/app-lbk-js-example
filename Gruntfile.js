@@ -30,7 +30,9 @@ module.exports = function(grunt) {
         '*.js'
       ],
       options: {
-        jshintrc: 'C:/LBKIT/lbk-front-config/sublime/linters-config/.jshintrc',
+        //jshintrc: 'C:/LBKIT/lbk-front-config/sublime/linters-config/.jshintrc',
+        jshintrc: '../linters/.jshintrc',
+        force: true,
         reporter: require('jshint-stylish')
       }
     }
@@ -39,4 +41,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('test', ['karma:dev']);
+  grunt.registerTask('jenkins_js', ['jshint:all', 'karma:continuous']);
 };
